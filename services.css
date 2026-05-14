@@ -1,0 +1,234 @@
+/* Services Page Styles */
+
+/* --- Hero Section --- */
+.services-hero {
+    padding: 180px 0 120px;
+    background: radial-gradient(circle at 50% 10%, #1a1a1a, #050505 50%);
+    text-align: left;
+}
+
+.hero-title .d-block {
+    display: block;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.services-hero .hero-subtitle {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* --- Service Sections --- */
+.service-section {
+    padding: 100px 0;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-header {
+    margin-bottom: 4rem;
+    max-width: 700px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* --- Bento Grid (Web Dev) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+}
+
+.bento-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
+.bento-item:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.bento-item.large {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.bento-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.bento-content p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.visual-gsap {
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--accent-blue), #8b5cf6);
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    opacity: 0.8;
+}
+
+/* --- Clean Grid (SEO) --- */
+.clean-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.clean-card {
+    background: transparent;
+    border-top: 1px solid var(--accent-blue);
+    padding-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.clean-card:hover {
+    background: rgba(59, 130, 246, 0.05);
+    /* very subtle blue tint */
+    padding: 2rem 1rem;
+    /* add side padding on hover */
+    margin: -1rem;
+    /* compensate */
+    margin-top: 0;
+    border-radius: 8px;
+}
+
+.card-num {
+    display: block;
+    font-family: monospace;
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.clean-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.clean-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* --- Process Section --- */
+.process-section {
+    padding: 100px 0;
+    background: #080808;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    position: relative;
+}
+
+/* Connecting line */
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    background: #080808;
+    /* mask line */
+    padding-right: 1rem;
+}
+
+.step-num {
+    display: inline-block;
+    background: #111;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.step p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .bento-item.large {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clean-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .process-steps::before {
+        display: none;
+        /* Hide line on mobile */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}

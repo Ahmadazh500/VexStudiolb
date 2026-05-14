@@ -1,0 +1,466 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #111111;
+    --border-color: #333;
+    --primary: #fff;
+    --accent: #3b82f6;
+    --text-main: #ededed;
+    --text-muted: #888;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 8px;
+    --transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.onboarding-container {
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.onboarding-header {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+}
+
+.portal-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 33.33%;
+    transition: width 0.5s ease;
+}
+
+.step-indicator {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+/* Wizard Content */
+.wizard-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.intake-form {
+    position: relative;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    /* Hidden by default */
+    animation: fadeIn 0.5s ease forwards;
+}
+
+fieldset.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-title {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    width: 100%;
+}
+
+.step-desc {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+select,
+textarea {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    padding: 1rem;
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Fix dropdown option visibility */
+select option {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+/* Checkbox Grid */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.custom-checkbox:hover {
+    border-color: #555;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.custom-checkbox .box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--text-muted);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.custom-checkbox input:checked+.box {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Checkmark logic */
+.custom-checkbox input:checked+.box::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+
+.custom-checkbox .label-text {
+    font-size: 0.95rem;
+}
+
+.custom-checkbox:has(input:checked) {
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+/* Actions */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-next,
+.btn-submit,
+.btn-primary {
+    background: var(--primary);
+    color: var(--bg-dark);
+    border: 1px solid var(--primary);
+}
+
+.btn-next:hover,
+.btn-submit:hover,
+.btn-primary:hover {
+    background: #ccc;
+    border-color: #ccc;
+}
+
+.btn-back,
+.btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+}
+
+.btn-back:hover {
+    color: var(--primary);
+}
+
+.btn-outline {
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+}
+
+/* Success State */
+.success-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-icon {
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.success-state h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.success-state p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Print Styles for PDF / Letterhead */
+.print-letterhead {
+    display: none;
+}
+
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+        font-family: 'Inter', sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Hide UI Elements */
+    .onboarding-container,
+    .onboarding-header,
+    .success-state,
+    .btn,
+    .noise-overlay {
+        display: none !important;
+    }
+
+    /* Show Letterhead */
+    .print-letterhead {
+        display: block !important;
+        padding: 40px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Letterhead Styling */
+    .letterhead-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .print-logo {
+        height: 50px;
+        width: auto;
+        /* Ensure logo is dark/visible on white paper if it's white text usually */
+        filter: invert(1);
+        /* Invert if logo is white text */
+    }
+
+    .company-info {
+        text-align: right;
+        font-size: 0.85rem;
+        color: #555;
+        line-height: 1.4;
+    }
+
+    .company-info h1 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 5px;
+    }
+
+    .print-divider {
+        border: 0;
+        border-bottom: 2px solid #000;
+        margin-bottom: 30px;
+    }
+
+    .print-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        letter-spacing: -0.02em;
+    }
+
+    .print-date {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    .print-section {
+        margin-bottom: 30px;
+        page-break-inside: avoid;
+    }
+
+    .print-section h3 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 8px;
+        margin-bottom: 15px;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .print-row {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .print-row strong {
+        font-weight: 600;
+        color: #333;
+        display: inline-block;
+        width: 120px;
+    }
+
+    .letterhead-footer {
+        position: fixed;
+        bottom: 30px;
+        left: 40px;
+        right: 40px;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #999;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+}

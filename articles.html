@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read our latest insights, technical articles, and guides on custom web development and SEO from Vex Studio.">
+    <title>Articles & Insights | Vex Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #fff;
+            margin: 0;
+            opacity: 0;
+        }
+
+        .articles-header {
+            padding: 180px 0 80px;
+            text-align: center;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 100px;
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .article-excerpt {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .article-read-more {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .article-read-more::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover .article-read-more::after {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <img src="./image/Vex-logo.webp" alt="Vex Company" class="brand-logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#work" class="nav-link">Selected Work</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="articles.html" class="nav-link" aria-current="page">Articles</a>
+                <a href="index.html#agency" class="nav-link">Agency</a>
+            </div>
+            <a href="index.html#contact" class="nav-cta">Start Project</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="articles-header">
+            <div class="container">
+                <h1 class="hero-title reveal-on-scroll">Insights & <span class="text-muted">Engineering</span></h1>
+                <p class="hero-subtitle reveal-on-scroll">Deep dives into Technical SEO, High-End Development, and Digital Strategy.</p>
+            </div>
+        </section>
+
+        <section class="articles-list-section">
+            <div class="container">
+                <div class="articles-grid">
+                    
+                    <!-- Article 1 -->
+                    <a href="article-core-web-vitals.html" class="article-card reveal-on-scroll">
+                        <div class="article-meta">Technical SEO • 5 min read</div>
+                        <h2 class="article-title">Why Core Web Vitals Matter for SEO in 2026</h2>
+                        <p class="article-excerpt">Google's algorithm prioritizes user experience above all else. Discover how optimizing your LCP, FID, and CLS scores can dramatically improve your organic rankings and conversion rates.</p>
+                        <span class="article-read-more">Read Article</span>
+                    </a>
+
+                    <!-- Article 2 -->
+                    <a href="article-gsap-scrollytelling.html" class="article-card reveal-on-scroll">
+                        <div class="article-meta">Web Design • 4 min read</div>
+                        <h2 class="article-title">The Power of GSAP Scrollytelling in High-End Web Design</h2>
+                        <p class="article-excerpt">Static websites are a thing of the past. Learn how integrating GSAP animations and scroll-linked interactions creates an immersive experience that keeps visitors engaged.</p>
+                        <span class="article-read-more">Read Article</span>
+                    </a>
+
+                    <!-- Article 3 -->
+                    <a href="article-headless-cms.html" class="article-card reveal-on-scroll">
+                        <div class="article-meta">Architecture • 6 min read</div>
+                        <h2 class="article-title">Headless CMS vs Traditional CMS: What's Right for You?</h2>
+                        <p class="article-excerpt">Decoupling your frontend from your backend provides unparalleled security, speed, and flexibility. Is it time for your business to adopt a Headless CMS architecture?</p>
+                        <span class="article-read-more">Read Article</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="margin-top: 0;">
+                <div class="footer-bottom-line">
+                    <p>&copy; 2026 Vex Studio.</p>
+                    <a href="#top" class="back-to-top">Back to Top ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+            const revealElements = gsap.utils.toArray('.reveal-on-scroll');
+            revealElements.forEach(el => {
+                gsap.from(el, {
+                    scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                    y: 30, opacity: 0, duration: 0.8, ease: "power2.out"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

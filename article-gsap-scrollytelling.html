@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how integrating GSAP animations and scroll-linked interactions creates an immersive experience that keeps visitors engaged.">
+    <title>The Power of GSAP Scrollytelling in High-End Web Design | Vex Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #fff;
+            margin: 0;
+            opacity: 0;
+        }
+
+        .article-content-section {
+            padding: 150px 0 100px;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .article-body p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+            margin: 3rem 0 1rem;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <img src="./image/Vex-logo.webp" alt="Vex Company" class="brand-logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#work" class="nav-link">Selected Work</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="articles.html" class="nav-link" aria-current="page">Articles</a>
+                <a href="index.html#agency" class="nav-link">Agency</a>
+            </div>
+            <a href="index.html#contact" class="nav-cta">Start Project</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="article-content-section">
+            <div class="article-container reveal-on-scroll">
+                <a href="articles.html" class="back-link">← Back to Articles</a>
+                
+                <header class="article-header">
+                    <h1>The Power of GSAP Scrollytelling in High-End Web Design</h1>
+                    <div class="article-meta">Published by Vex Studio • Web Design</div>
+                </header>
+
+                <div class="article-body">
+                    <p>Static websites are a thing of the past. In an era where user attention spans are measured in seconds, brands must do more than just present information; they must tell a compelling story. This is where the concept of <strong>"Scrollytelling"</strong> becomes invaluable.</p>
+                    
+                    <p>Scrollytelling is the art of revealing narrative elements, data, and visual sequences dynamically as the user scrolls down the page. By tying animations to the user's scroll position, you give the audience physical control over the pacing of the story.</p>
+
+                    <h2>The Engine Behind the Magic: GSAP</h2>
+                    <p>While basic CSS transitions can handle hover states, true scrollytelling requires robust javascript animation libraries. <strong>GSAP (GreenSock Animation Platform)</strong> is the industry standard for high-performance web animation.</p>
+                    
+                    <p>With GSAP's ScrollTrigger plugin, developers can create complex, timeline-based animations that trigger precisely when an element enters the viewport. Elements can be pinned to the screen while their contents evolve, text can be revealed character by character, and 3D objects can rotate in sync with the user's mouse wheel.</p>
+
+                    <h2>Psychological Impact on Users</h2>
+                    <p>Why is this effective? Because interactive experiences trigger deeper cognitive engagement. When users feel they are "driving" the narrative through their scroll wheel, they are less likely to bounce and more likely to retain the information presented.</p>
+                    
+                    <p>High-end web design isn't just about looking pretty. It's about engineering a sensory experience that anchors your brand in the user's mind. Through GSAP and creative scrollytelling, we turn passive readers into active participants.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="margin-top: 0;">
+                <div class="footer-bottom-line">
+                    <p>&copy; 2026 Vex Studio.</p>
+                    <a href="#top" class="back-to-top">Back to Top ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.reveal-on-scroll', { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" });
+        });
+    </script>
+</body>
+</html>
